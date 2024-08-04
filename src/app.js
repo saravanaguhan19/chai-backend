@@ -23,4 +23,17 @@ app.use(express.static("public"));
 
 app.use(cookieParser());
 
+//routes import
+
+import userRouter from "./routes/user.routes.js";
+
+//routes decleration
+app.use("/api/v1/users", userRouter);
+
+app.get("/ping", (req, res) => {
+  res.status(200).json({
+    message: "route got pinged",
+  });
+});
+
 export { app };
